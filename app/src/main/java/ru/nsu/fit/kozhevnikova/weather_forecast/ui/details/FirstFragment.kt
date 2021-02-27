@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import ru.nsu.fit.kozhevnikova.weather_forecast.ui.details.databinding.FragmentFirstBinding
+import ru.nsu.fit.kozhevnikova.weather_forecast.R
+import ru.nsu.fit.kozhevnikova.weather_forecast.databinding.FragmentFirstBinding
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.

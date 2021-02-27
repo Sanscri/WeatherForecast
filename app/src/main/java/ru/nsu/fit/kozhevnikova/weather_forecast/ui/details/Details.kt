@@ -8,7 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import ru.nsu.fit.kozhevnikova.weather_forecast.R
-import ru.nsu.fit.kozhevnikova.weather_forecast.ui.details.databinding.ActivityDetailsBinding
+import ru.nsu.fit.kozhevnikova.weather_forecast.databinding.ActivityDetailsBinding
 
 class Details : AppCompatActivity() {
 
