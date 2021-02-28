@@ -1,18 +1,19 @@
-package ru.nsu.fit.kozhevnikova.weather_forecast.ui.List
+package ru.nsu.fit.kozhevnikova.weather_forecast.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.nsu.fit.kozhevnikova.weather_forecast.R
 import ru.nsu.fit.kozhevnikova.weather_forecast.WeatherForecastApplication
-import ru.nsu.fit.kozhevnikova.weather_forecast.ui.CityRepository
-import ru.nsu.fit.kozhevnikova.weather_forecast.ui.details.DetailActivity
+import ru.nsu.fit.kozhevnikova.weather_forecast.repository.CityRepository
+import ru.nsu.fit.kozhevnikova.weather_forecast.ui.list.CityAdapter
 
-class ListActivity : AppCompatActivity() {
+class CitiesListActivity : AppCompatActivity() {
     private lateinit var cityRepository: CityRepository
     private lateinit var cityList: RecyclerView
     private val adapter = CityAdapter {
-        DetailActivity.start(this, it.id)
+        DetailsActivity.start(this, it.id)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +22,6 @@ class ListActivity : AppCompatActivity() {
         cityList = findViewById(R.id.citiesList)
         cityList.adapter = adapter
     }
-
     override fun onResume() {
         super.onResume()
         adapter.cities = cityRepository.getCities()

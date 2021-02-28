@@ -1,4 +1,4 @@
-package ru.nsu.fit.kozhevnikova.weather_forecast.ui.List
+package ru.nsu.fit.kozhevnikova.weather_forecast.ui.list
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.nsu.fit.kozhevnikova.weather_forecast.R
-import ru.nsu.fit.kozhevnikova.weather_forecast.ui.City
+import ru.nsu.fit.kozhevnikova.weather_forecast.model.City
 
 
 class CityAdapter(private val onClick: (City) -> Unit) : RecyclerView.Adapter<CityHolder>() {
@@ -35,7 +35,7 @@ class CityHolder(itemView: View, private val onClick: (City) -> Unit) : Recycler
     private val cityText: TextView = itemView.findViewById(R.id.cityName)
 
     fun bind(city: City) {
-        cityText.text = itemView.context.getString(R.string.city_format, city.name)
+        cityText.text =  city.name
         itemView.setOnClickListener { onClick(city) }
     }
 }

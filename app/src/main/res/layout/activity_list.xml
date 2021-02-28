@@ -5,12 +5,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.List.ListActivity">
+    tools:context=".ui.CitiesListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/citiesList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_city"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_city" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:scaleX="0.10"
+        android:scaleY="0.10"
+        android:visibility="visible" />
 </LinearLayout>
