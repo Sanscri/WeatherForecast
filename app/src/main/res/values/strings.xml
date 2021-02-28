@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">WeatherForecast</string>
+    <string name="title_activity_details">Details</string>
+    <string name="open_weather_maps_app_id">11111</string>
+
+    <string name="place_not_found">Sorry, no weather data found.</string>
+
 </resources>
