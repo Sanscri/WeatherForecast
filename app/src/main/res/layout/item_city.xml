@@ -19,18 +19,6 @@
         app:layout_constraintEnd_toStartOf="@id/arrowIcon"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/Country"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:textColor="@color/purple_700"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/arrowIcon"
-        app:layout_constraintBottom_toTopOf="@id/separator"
-        android:textSize="14sp"
-        tools:text="No occupation" />
 
     <ImageView
         android:id="@+id/arrowIcon"

@@ -3,6 +3,7 @@
     package="ru.nsu.fit.kozhevnikova.weather_forecast">
 
     <application
+        android:name=".WeatherForecastApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,13 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeatherForecast">
         <activity
-            android:name=".ui.details.Details"
-            android:exported="true"
-            android:label="@string/title_activity_details"
-            android:theme="@style/Theme.WeatherForecast.NoActionBar"></activity>
+            android:name=".ui.details.DetailActivity"/>
         <activity
-            android:name=".ui.List.ListActivity"
-            android:exported="true">
+            android:name=".ui.List.ListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
