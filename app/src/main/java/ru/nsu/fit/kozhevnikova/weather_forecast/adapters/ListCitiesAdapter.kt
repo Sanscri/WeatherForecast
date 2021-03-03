@@ -1,4 +1,4 @@
-package ru.nsu.fit.kozhevnikova.weather_forecast.ui.list
+package ru.nsu.fit.kozhevnikova.weather_forecast.view.list
 
 import android.view.LayoutInflater
 import android.view.View

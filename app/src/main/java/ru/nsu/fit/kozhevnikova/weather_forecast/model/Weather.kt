@@ -1,17 +1,15 @@
 package ru.nsu.fit.kozhevnikova.weather_forecast.model
 
+import com.google.gson.annotations.SerializedName
+
+
 data class Weather(
-    val city: City,
-    var temperature: Temperature,
-    var wind: Wind,
-    var currentWeather: CurrentWeather,
-    var currentCondition: CurrentCondition,
-    var cloud: Cloud,
-    var sys: Sys
-){
-    override fun toString(): String {
-        return city.toString() + temperature.toString() + wind.toString() +
-        currentWeather.toString() + currentCondition.toString() +
-        cloud.toString() + sys.toString()
-    }
-}
+    @SerializedName("id")
+    val id : Int,
+    @SerializedName("main")
+    val main : String,
+    @SerializedName("description")
+    val description : String,
+    @SerializedName("icon")
+    val icon : String
+)

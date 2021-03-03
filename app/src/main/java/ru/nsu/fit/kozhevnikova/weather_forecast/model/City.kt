@@ -1,13 +1,18 @@
 package ru.nsu.fit.kozhevnikova.weather_forecast.model
 
+import com.google.gson.annotations.SerializedName
+
 data class City(
+    @SerializedName("id")
     val id: Long,
+    @SerializedName("name")
     val name: String,
-    val latitude: String,
-    val longitude: String,
-    val countryCode: String
+    @SerializedName("coord")
+    val coordinates: Coordinates,
+    @SerializedName("country")
+    val country: String
 ){
     override fun toString(): String {
-        return "City: $name ($latitude, $longitude) ($countryCode)"
+        return "City: $name ($coordinates) ($country)"
     }
 }
