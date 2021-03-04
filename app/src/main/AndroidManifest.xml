@@ -13,9 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeatherForecast">
         <activity
-            android:name=".view.DetailsActivity"/>
+            android:name="ru.nsu.fit.kozhevnikova.weather_forecast.presentation.activities.DetailsActivity"/>
         <activity
-            android:name=".view.CitiesListActivity">
+            android:name="ru.nsu.fit.kozhevnikova.weather_forecast.presentation.activities.CitiesListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

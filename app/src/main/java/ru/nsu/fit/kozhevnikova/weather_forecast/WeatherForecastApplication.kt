@@ -1,15 +1,15 @@
 package ru.nsu.fit.kozhevnikova.weather_forecast
 
 import android.app.Application
-import ru.nsu.fit.kozhevnikova.weather_forecast.repository.CityRepository
-import ru.nsu.fit.kozhevnikova.weather_forecast.repository.WeatherForecastRepository
+import ru.nsu.fit.kozhevnikova.weather_forecast.data.repository.CityRepositoryImpl
+import ru.nsu.fit.kozhevnikova.weather_forecast.data.repository.WeatherForecastRepositoryImpl
 
 class WeatherForecastApplication: Application() {
-    lateinit var cityRepository: CityRepository
-    lateinit var weatherForecastRepository: WeatherForecastRepository
+    lateinit var cityRepositoryImpl: CityRepositoryImpl
+    lateinit var weatherForecastRepositoryImpl: WeatherForecastRepositoryImpl
     override fun onCreate(){
         super.onCreate()
-        cityRepository = CityRepository()
-        weatherForecastRepository = WeatherForecastRepository()
+        cityRepositoryImpl = CityRepositoryImpl()
+        weatherForecastRepositoryImpl = WeatherForecastRepositoryImpl()
     }
 }

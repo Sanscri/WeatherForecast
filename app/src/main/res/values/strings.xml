@@ -3,6 +3,32 @@
     <string name="title_activity_details">Details</string>
     <string name="open_weather_maps_app_id">11111</string>
 
-    <string name="place_not_found">Sorry, no weather data found.</string>
+    <!-- Weather conditions label strings -->
+    <string name="wind_label">Ветер: %1$s %2$s</string>
+    <string name="rain_label">Дождь: %1$s %2$s</string>
+    <string name="snow_label">Снег: %1$s %2$s</string>
+    <string name="humidity_label">Влажность: %1$s%2$s</string>
+    <string name="pressure_label">Pressure: %1$s %2$s</string>
+    <string name="cloudiness_label">Облачность: %1$s%2$s</string>
+    <string name="sunrise_label">Восход солнца: %s</string>
+    <string name="sunset_label">Заход солнца: %s</string>
+    <string name="temperature_morning_title">Утро</string>
+    <string name="temperature_day_title">День</string>
+    <string name="temperature_evening_title">Вечер</string>
+    <string name="temperature_night_title">Ночь</string>
+    <string name="temperature_and_scale_label" translatable="false">%1$s%2$s</string>
+    <string name="label_temperature">Температура</string>
+    <string name="label_wind">Ветер</string>
+    <string name="label_rain">Дождь</string>
+    <string name="label_snow">Снег</string>
 
+    <!-- Wind directions -->
+    <string name="wind_direction_north">север</string>
+    <string name="wind_direction_north_east">северо-восток</string>
+    <string name="wind_direction_east">восток</string>
+    <string name="wind_direction_south_east">юго-восток</string>
+    <string name="wind_direction_south">юг</string>
+    <string name="wind_direction_south_west">юг-запад</string>
+    <string name="wind_direction_west">запад</string>
+    <string name="wind_direction_north_west">северо-запад</string>
 </resources>
