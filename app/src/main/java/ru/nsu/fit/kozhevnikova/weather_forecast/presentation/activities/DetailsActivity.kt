@@ -12,7 +12,8 @@ import ru.nsu.fit.kozhevnikova.weather_forecast.R
 import ru.nsu.fit.kozhevnikova.weather_forecast.WeatherForecastApplication
 import ru.nsu.fit.kozhevnikova.weather_forecast.domain.model.CurrentWeather
 import ru.nsu.fit.kozhevnikova.weather_forecast.data.repository.CityRepositoryImpl
-import ru.nsu.fit.kozhevnikova.weather_forecast.data.repository.WeatherForecastRepositoryImpl
+import ru.nsu.fit.kozhevnikova.weather_forecast.data.repository.CurrentWeatherRepositoryImpl
+import ru.nsu.fit.kozhevnikova.weather_forecast.presentation.viewModels.DetailViewModelFactory
 import ru.nsu.fit.kozhevnikova.weather_forecast.presentation.viewModels.DetailsViewModel
 
 class DetailsActivity : AppCompatActivity() {
@@ -26,9 +27,10 @@ class DetailsActivity : AppCompatActivity() {
             context.startActivity(intent)
         }
     }
-
-    private lateinit var cityRepositoryImpl: CityRepositoryImpl
-    private lateinit var weatherForecastRepositoryImpl: WeatherForecastRepositoryImpl
+    private val viewModel: DetailsViewModel by viewModels{
+        val id = intent.getLongExtra(EXTRA_ID, 0)
+        DetailViewModelFactory(id)
+    }
 
     private lateinit var cityTextView: TextView
     private lateinit var temperatureTextView: TextView
@@ -41,14 +43,12 @@ class DetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        cityRepositoryImpl = (application as WeatherForecastApplication).cityRepositoryImpl
-        weatherForecastRepositoryImpl = (application as WeatherForecastApplication).weatherForecastRepositoryImpl
         setContentView(R.layout.activity_details)
-        viewModel.weather.observe(this, ::bindPerson)
-        viewModel.closeScreenEvent.observe(this) { closeScreen() }
         initViews()
+        viewModel.currentWeather.observe(this, ::bindWeather)
+        viewModel.closeScreenEvent.observe(this) { closeScreen() }
     }
-    fun bindPerson(weather: CurrentWeather) {
+    private fun bindWeather(weather: CurrentWeather) {
         sysTextView.text = weather.sys.toString()
         cityTextView.text = weather.cityName
         windTextView.text = weather.wind.toString()
@@ -56,31 +56,13 @@ class DetailsActivity : AppCompatActivity() {
         cloudTextView.text = weather.clouds.toString()
 
     }
-    private val viewModel: DetailsViewModel by viewModels {
-        object : ViewModelProvider.Factory {
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-                modelClass
-                    .getConstructor(WeatherForecastRepositoryImpl::class.java, Long::class.java)
-                    .newInstance(
-                        (application as WeatherForecastApplication).weatherForecastRepositoryImpl,
-                        intent.getLongExtra(EXTRA_ID, 0)
-                    )
-        }
-    }
 
     private fun initViews() {
-        val id = intent.getLongExtra(EXTRA_ID, 0)
-        val weatherForecast = weatherForecastRepositoryImpl.getWeather(id)
-        if (weatherForecast != null) {
-            cityTextView = findViewById(R.id.textCity)
-            windTextView = findViewById(R.id.textWind)
-            weatherTextView = findViewById(R.id.textWeather)
-            cloudTextView = findViewById(R.id.textCloud)
-            sysTextView = findViewById(R.id.textSys)
-
-        } else {
-            finish()
-        }
+        cityTextView = findViewById(R.id.textCity)
+        windTextView = findViewById(R.id.textWind)
+        weatherTextView = findViewById(R.id.textWeather)
+        cloudTextView = findViewById(R.id.textCloud)
+        sysTextView = findViewById(R.id.textSys)
 
     }
     private fun closeScreen() {

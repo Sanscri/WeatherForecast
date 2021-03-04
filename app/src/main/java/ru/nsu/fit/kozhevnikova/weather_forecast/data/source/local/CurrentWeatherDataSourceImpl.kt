@@ -1,9 +1,8 @@
-package ru.nsu.fit.kozhevnikova.weather_forecast.data.repository
+package ru.nsu.fit.kozhevnikova.weather_forecast.data.source.local
 
 import ru.nsu.fit.kozhevnikova.weather_forecast.domain.model.*
 
-class WeatherForecastRepositoryImpl {
-
+class CurrentWeatherDataSourceImpl: CurrentWeatherDataSource {
     private val allWeather = mutableListOf(
         CurrentWeather(
             coordinates = Coordinates(longitude = 13.3, latitude = 11.13),
@@ -72,10 +71,12 @@ class WeatherForecastRepositoryImpl {
         )
     )
 
+    override fun getWeathers(): List<CurrentWeather>{
+        return allWeather
+    }
+    override fun getWeather(id: Long): CurrentWeather? = allWeather.firstOrNull { it.cityId == id }
 
-    fun getWeather(id: Long): CurrentWeather? = allWeather.firstOrNull { it.cityId == id }
-
-    fun setWeather(currentWeather: CurrentWeather) {
+    override fun setWeather(currentWeather: CurrentWeather) {
         val editCityIndex = allWeather.indexOfFirst { it.cityId == currentWeather.cityId }
         if (editCityIndex >= 0) {
             allWeather[editCityIndex] = currentWeather

@@ -4,14 +4,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ru.nsu.fit.kozhevnikova.weather_forecast.domain.model.City
 import ru.nsu.fit.kozhevnikova.weather_forecast.data.repository.CityRepositoryImpl
+import ru.nsu.fit.kozhevnikova.weather_forecast.domain.usecase.city.GetCitiesUseCase
 
-class ListViewModel(private val repositoryImpl: CityRepositoryImpl) : ViewModel() {
+class ListViewModel(private val getCitiesUseCase: GetCitiesUseCase) : ViewModel() {
 
     val cityList = MutableLiveData<List<City>>()
 
-    fun loadCity() {
-        val city = repositoryImpl.getCities()
+    fun loadCities() {
+        val cities = getCitiesUseCase()
 
-        cityList.value = city
+        cityList.value = cities
     }
 }

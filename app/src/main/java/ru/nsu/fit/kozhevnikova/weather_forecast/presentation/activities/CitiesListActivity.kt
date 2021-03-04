@@ -10,21 +10,16 @@ import ru.nsu.fit.kozhevnikova.weather_forecast.R
 import ru.nsu.fit.kozhevnikova.weather_forecast.WeatherForecastApplication
 import ru.nsu.fit.kozhevnikova.weather_forecast.domain.model.City
 import ru.nsu.fit.kozhevnikova.weather_forecast.data.repository.CityRepositoryImpl
-import ru.nsu.fit.kozhevnikova.weather_forecast.presentation.activities.list.CityAdapter
+import ru.nsu.fit.kozhevnikova.weather_forecast.presentation.adapters.CityAdapter
 import ru.nsu.fit.kozhevnikova.weather_forecast.presentation.viewModels.ListViewModel
+import ru.nsu.fit.kozhevnikova.weather_forecast.presentation.viewModels.ListViewModelFactory
 
 class CitiesListActivity : AppCompatActivity() {
     private val viewModel: ListViewModel by viewModels {
-        object : ViewModelProvider.Factory {
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-                modelClass
-                    .getConstructor(CityRepositoryImpl::class.java)
-                    .newInstance(
-                        (application as WeatherForecastApplication).cityRepositoryImpl
-                    )
-        }
+        ListViewModelFactory()
     }
     private lateinit var cityList: RecyclerView
+
     private val adapter = CityAdapter {
         DetailsActivity.start(this, it.id)
     }
@@ -32,6 +27,7 @@ class CitiesListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
         viewModel.cityList.observe(this, ::bindCityList)
+
         cityList = findViewById(R.id.citiesList)
         cityList.adapter = adapter
     }
@@ -41,6 +37,6 @@ class CitiesListActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadCity()
+        viewModel.loadCities()
     }
 }

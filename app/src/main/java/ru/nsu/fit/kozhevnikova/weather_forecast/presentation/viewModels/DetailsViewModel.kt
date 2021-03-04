@@ -4,25 +4,22 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ru.nsu.fit.kozhevnikova.weather_forecast.util.events.LiveEvent
 import ru.nsu.fit.kozhevnikova.weather_forecast.domain.model.CurrentWeather
-import ru.nsu.fit.kozhevnikova.weather_forecast.data.repository.WeatherForecastRepositoryImpl
+import ru.nsu.fit.kozhevnikova.weather_forecast.data.repository.CurrentWeatherRepositoryImpl
+import ru.nsu.fit.kozhevnikova.weather_forecast.domain.model.City
+import ru.nsu.fit.kozhevnikova.weather_forecast.domain.usecase.city.GetCityUseCase
+import ru.nsu.fit.kozhevnikova.weather_forecast.domain.usecase.weather.GetWeatherUseCase
+import ru.nsu.fit.kozhevnikova.weather_forecast.domain.usecase.weather.GetWeathersUserCase
+import ru.nsu.fit.kozhevnikova.weather_forecast.domain.usecase.weather.SetWeatherUseCase
 
 class DetailsViewModel(
-    private val repositoryImpl: WeatherForecastRepositoryImpl,
-    id: Long
-) : ViewModel() {
-
-    val weather = MutableLiveData<CurrentWeather>()
-
+    getWeatherUserCase: GetWeatherUseCase,
+    private val setWeatherUseCase: SetWeatherUseCase,
+    id: Long)
+    : ViewModel() {
+    val currentWeather = MutableLiveData<CurrentWeather>()
     val closeScreenEvent = LiveEvent()
-
     init {
-        val weather = repositoryImpl.getWeather(id)
-
-        if (weather != null) {
-            this.weather.value = weather
-        } else {
-            closeScreenEvent(Unit)
-        }
-
+        val currentWeather  = getWeatherUserCase(id)
+        this.currentWeather.value = currentWeather!!
     }
 }
