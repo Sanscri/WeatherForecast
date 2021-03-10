@@ -50,7 +50,7 @@ class DetailsActivity : AppCompatActivity() {
     }
     private fun bindWeather(weather: CurrentWeather) {
         sysTextView.text = weather.sys.toString()
-        cityTextView.text = weather.cityName
+        cityTextView.text = weather.cityId.toString()
         windTextView.text = weather.wind.toString()
         weatherTextView.text = weather.weather.toString()
         cloudTextView.text = weather.clouds.toString()
