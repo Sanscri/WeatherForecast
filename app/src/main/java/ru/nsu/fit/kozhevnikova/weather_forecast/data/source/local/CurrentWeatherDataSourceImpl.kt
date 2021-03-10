@@ -15,7 +15,7 @@ class CurrentWeatherDataSourceImpl: CurrentWeatherDataSource {
             timeOfData = 14,
             sys = Sys(type = 1, id = 6, message = 15.2, country = "111", sunrise = 111, sunset = 11),
             cityId = 0,
-            cityName = "Moscow"
+            cod = 1.1
         ),
         CurrentWeather(
             coordinates = Coordinates(longitude = 13.3, latitude = 11.13),
@@ -28,7 +28,7 @@ class CurrentWeatherDataSourceImpl: CurrentWeatherDataSource {
             timeOfData = 14,
             sys = Sys(type = 1, id = 6, message = 15.2, country = "111", sunrise = 111, sunset = 11),
             cityId = 1,
-            cityName = "Novosibirsk"
+            cod = 1.2
         ),
         CurrentWeather(
             coordinates = Coordinates(longitude = 13.3, latitude = 11.13),
@@ -41,7 +41,7 @@ class CurrentWeatherDataSourceImpl: CurrentWeatherDataSource {
             timeOfData = 14,
             sys = Sys(type = 1, id = 6, message = 15.2, country = "111", sunrise = 111, sunset = 11),
             cityId = 2,
-            cityName = "London"
+            cod = 1.4
         ),
         CurrentWeather(
             coordinates = Coordinates(longitude = 13.3, latitude = 11.13),
@@ -54,7 +54,7 @@ class CurrentWeatherDataSourceImpl: CurrentWeatherDataSource {
             timeOfData = 14,
             sys = Sys(type = 1, id = 6, message = 15.2, country = "111", sunrise = 111, sunset = 11),
             cityId = 3,
-            cityName = "New York"
+            cod = 1.5
         ),
         CurrentWeather(
             coordinates = Coordinates(longitude = 13.3, latitude = 11.13),
@@ -67,7 +67,7 @@ class CurrentWeatherDataSourceImpl: CurrentWeatherDataSource {
             timeOfData = 14,
             sys = Sys(type = 1, id = 6, message = 15.2, country = "111", sunrise = 111, sunset = 11),
             cityId = 4,
-            cityName = "Paris"
+            cod = 1.1
         )
     )
 

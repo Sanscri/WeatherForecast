@@ -2,9 +2,7 @@ package ru.nsu.fit.kozhevnikova.weather_forecast.domain.model
 
 import com.google.gson.annotations.SerializedName
 
-data class CurrentWeather(
-    @SerializedName("coord")
-    val coordinates: Coordinates,
+data class ThreeHoursForecast(
     @SerializedName("weather")
     val weather : List<Weather>,
     @SerializedName("main")
@@ -18,17 +16,5 @@ data class CurrentWeather(
     @SerializedName("snow")
     val snow: Snow,
     @SerializedName("dt")
-    val timeOfData : Long,
-    @SerializedName("sys")
-    val sys : Sys,
-    @SerializedName("id")
-    val cityId : Long,
-    @SerializedName("cod")
-    val cod: Double
-    //@SerializedName("name")
-    //val cityName : String
-){
-    override fun toString(): String {
-        return  weather.toString()
-    }
-}
+    val timeOfData : Long
+)
